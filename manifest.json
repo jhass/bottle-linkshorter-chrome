@@ -9,7 +9,7 @@
   },
   "options_page": "options.html",
   "permissions": [
-    "*",
+    "http://*/",
     "tabs"
   ]
 }

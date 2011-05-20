@@ -1,0 +1,37 @@
+<html>
+ <head>
+  <title>Options for Bottle Linkshorter</title>
+  <script type="text/javascript">   
+   function loadOptions() {
+       var input = document.getElementById('url');
+       var url = localStorage["url"];
+       if ( url == undefined ) {
+           url = "";
+       }
+       input.value = url;
+   }
+   
+   function saveOptions() {
+       var input = document.getElementById('url');
+       var url = input.value;
+       if (url.match("/$") != "/") {
+           url = url+"/";
+       }
+       localStorage["url"] = url;
+   }
+  </script>
+  <style type="text/css">
+    body {
+        width:50%;
+        border:1px dashed #CCC;
+        padding:3em;
+        margin:10% auto;
+    }
+  </style>
+ </head>
+ <body onload="loadOptions()">
+  <label for="url">The URL to a Bottle Linkshorter instance, for example http://dspr.tk/:</label>
+  <input type="text" id="url" />
+  <button onclick="saveOptions()">Save</button>
+ </body>
+</html>

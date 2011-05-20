@@ -5,8 +5,8 @@
  chrome.tabs.getSelected(null, function(tab) {
     var url = tab.url;
     req.open(
-       "GET",
-        "http://dspr.tk/api/add/"+url,
+        "GET",
+        localStorage["url"]+"api/add/"+url,
         true
     );
     req.onload = getLink;

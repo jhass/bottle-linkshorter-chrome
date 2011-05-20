@@ -1,0 +1,29 @@
+<style>
+</style>
+<script>
+ var req = new XMLHttpRequest();
+ chrome.tabs.getSelected(null, function(tab) {
+    var url = tab.url;
+    req.open(
+       "GET",
+        "http://dspr.tk/api/add/"+url,
+        true
+    );
+    req.onload = getLink;
+    req.send(null);
+ });
+
+ function getLink() {
+    var resp = eval('('+req.responseText+')');
+    if (resp && resp.status == 200) {
+        document.write('<input id="url" type="text" value="'+resp.shortUrl+'" readonly="readonly" />');
+        var input = document.getElementById('url');
+        input.focus();
+        input.select();
+        document.execCommand("copy", false, null);
+        document.write('<span id="copied">Copied to clipboard!</span>');
+    } else {
+        document.write('<span id="error">'+resp.message+'</span>');
+    }
+ }
+</script>

@@ -1,0 +1,14 @@
+{
+  "name": "Bottle Linkshorter",
+  "version": "0.1",
+  "description": "An extension to make use of a Bottle Linkshorter instance",
+  "browser_action": {
+    "default_title": "Get shortened URL",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "http://dspr.tk/api/",
+    "tabs"
+  ]
+}
